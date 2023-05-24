@@ -1,0 +1,17 @@
+<li class="{% if bookinst.is_overdue %}
+text-danger {% endif %}">
+<a href="{% url 'book-detail' bookinst.book.pk %}">
+{{bookinst.book.title}}</a>
+({{bookinst.due_back}})
+</li>
+
+"{% if bookinst.is_overdue %}
+                    text-danger {% endif %}"
+
+из base_generic:
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/
+bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/
+jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/
+js/bootstrap.min.js"></script>
