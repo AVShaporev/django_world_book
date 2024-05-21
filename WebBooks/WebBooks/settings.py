@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=1%25yq*m!&*q*v+k&=lzv1jozaf@fhku%!*0=wpq!u#8s6v-x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'FALSE'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,8 +79,15 @@ WSGI_APPLICATION = 'WebBooks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AShaporev$web_book',
+        'USER': 'AShaporev',
+        'PASSWORD': 'dyamCASha',
+        'HOST': 'AShaporev.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -119,10 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/Users/avsha/PycharmProjects/World_books/WebBooks/catalog/static/'
+STATIC_URL = '/home/AShaporev/django_world_book/WebBooks/catalog/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '/Users/avsha/PycharmProjects/World_books/WebBooks/catalog/static')
+    os.path.join(BASE_DIR, '/home/AShaporev/django_world_book/WebBooks/catalog/static/')
 ]
 
 # Default primary key field type
@@ -137,8 +144,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Herocu: Обновление конфигурации базы данных из $DATABASE_URL
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # Статичные файлы (CSS, JavaScript, Images)
 # https://docs . djangoproject . com/en/1.10/howto/static-files/
